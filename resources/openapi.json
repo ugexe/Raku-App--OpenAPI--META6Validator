@@ -32,7 +32,13 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/metaSpec"
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "description": "True if the META6 data was valid",
+                                            "type": "integer"
+                                        }
+                                    }
                                 }
                             }
                         }
