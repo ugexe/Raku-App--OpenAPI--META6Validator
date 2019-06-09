@@ -1,0 +1,22 @@
+{
+    "name" : "App::OpenAPI::META6Validator",
+    "description" : "Web API for validating META6 data",
+    "auth" : "github:ugexe",
+    "api" : "0",
+    "version" : "0.0.1",
+    "provides" : {
+        "App::OpenAPI::META6Validator" : "lib/App/OpenAPI/META6Validator.pm6"
+    },
+    "depends" : [
+        "JSON::Fast",
+        "Cro::Core",
+        "Cro::OpenAPI::RoutesFromDefinition"
+    ],
+    "test-depends" : [
+        "Test",
+        "Cro::HTTP::Test"
+    ],
+    "resources" : [
+        "openapi.json"
+    ]
+}

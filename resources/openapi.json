@@ -1,0 +1,204 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "META6 Validator API",
+        "version": "0.0.1",
+        "description": "API for validating Perl6 META6.json files"
+    },
+    "tags": [
+        {
+            "name": "Validate",
+            "description": "Validate META6 data"
+        }
+    ],
+    "paths": {
+        "/validate": {
+            "post": {
+                "summary": "Validate the META6 data for a Perl6 distribution",
+                "operationId": "validate",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/metaSpec"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/metaSpec"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "metaSpec": {
+                "allOf" : [
+                    {
+                        "$ref": "#/components/schemas/identitySpec"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "perl": {
+                                "description": "The minimal perl version for which this distribution can be installed.",
+                                "type": "string"
+                            },
+                            "meta-version": {
+                                "description": "The version of the META6.json schema in use, as a quoted Version literal (without the 'v' prefix).",
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "provides": {
+                                "description": "A list of module - local filename pairs that this distribution makes available to be used.",
+                                "type": "object"
+                            },
+                            "depends": {
+                                "description": "A list of run-time dependencies.",
+                                "type": "array",
+                                "nullable": true,
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/identitySpec"
+                                        }
+                                    ]
+                                }
+                            },
+                            "test-depends": {
+                                "description": "A list of test-time dependencies.",
+                                "type": "array",
+                                "nullable": true,
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/identitySpec"
+                                        }
+                                    ]
+                                }
+                            },
+                            "build-depends": {
+                                "description": "A list of build-time dependencies.",
+                                "type": "array",
+                                "nullable": true,
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "type": "string"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/identitySpec"
+                                        }
+                                    ]
+                                }
+                            },
+                            "description": {
+                                "description": "A short description of this distribution.",
+                                "type": "string"
+                            },
+                            "authors": {
+                                "description": "A list of (mnemonic) names of people who work / have worked on this distribution.",
+                                "type": "array",
+                                "nullable": true,
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "resources": {
+                                "description": "A list of file names, each of them corresponding to a file in the 'resources' directory in the distribution before or at build time.",
+                                "type": "array",
+                                "nullable": true,
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "license": {
+                                "description": "The SPDX license identifier that the package is distributed under.",
+                                "type": "string",
+                                "nullable": true
+                            },
+                            "tags": {
+                                "description": "A list of general purpose tags.",
+                                "type": "array",
+                                "nullable": true,
+                                "items": {
+                                    "type": "string"
+                                }
+                            },
+                            "support": {
+                                "type": "object",
+                                "description": "Support information for this distribution.",
+                                "properties": {
+                                    "email": {
+                                        "description": "The email address of the owner of this distribution.",
+                                        "type": "string"
+                                    },
+                                    "mailinglist": {
+                                        "description": "The mailinglist of users of this distribution.",
+                                        "type": "string"
+                                    },
+                                    "bugtracker": {
+                                        "description": "The bugtracker of this distribution.",
+                                        "type": "string"
+                                    },
+                                    "source": {
+                                        "description": "The URL of the source of this distribution.",
+                                        "type": "string"
+                                    },
+                                    "irc": {
+                                        "description": "The URL of the IRC channel where this distribution can be discussed",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "identitySpec" : {
+                "type": "object",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "description": "The name identifying this distribution.",
+                        "type": "string"
+                    },
+                    "auth": {
+                        "description": "A globally unique identifier for a e.g. person or organization.",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "version": {
+                        "description": "The version literal for this distribution.",
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "api": {
+                        "description": "The api (version) literal for this distribution.",
+                        "type": "string",
+                        "nullable": true
+                    }
+                }                    
+            }
+        }
+    }
+}
