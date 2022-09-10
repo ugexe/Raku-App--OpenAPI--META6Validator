@@ -18,5 +18,9 @@
     ],
     "resources" : [
         "openapi.json"
-    ]
+    ],
+    "support"      : {
+        "bugtracker" : "https://github.com/ugexe/Raku-App--OpenAPI--META6Validator/issues",
+        "source"     : "https://github.com/ugexe/Raku-App--OpenAPI--META6Validator.git"
+    }
 }
