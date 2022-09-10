@@ -5,7 +5,7 @@
     "api" : "0",
     "version" : "0.0.1",
     "provides" : {
-        "App::OpenAPI::META6Validator" : "lib/App/OpenAPI/META6Validator.pm6"
+        "App::OpenAPI::META6Validator" : "lib/App/OpenAPI/META6Validator.rakumod"
     },
     "depends" : [
         "JSON::Fast",

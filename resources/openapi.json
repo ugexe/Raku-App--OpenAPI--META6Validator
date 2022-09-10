@@ -3,7 +3,7 @@
     "info": {
         "title": "META6 Validator API",
         "version": "0.0.1",
-        "description": "API for validating Perl6 META6.json files"
+        "description": "API for validating Raku META6.json files"
     },
     "tags": [
         {
@@ -57,8 +57,8 @@
                     {
                         "type": "object",
                         "properties": {
-                            "perl": {
-                                "description": "The minimal perl version for which this distribution can be installed.",
+                            "raku": {
+                                "description": "The minimal raku version for which this distribution can be installed.",
                                 "type": "string"
                             },
                             "meta-version": {
