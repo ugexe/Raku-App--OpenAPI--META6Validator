@@ -1,6 +1,4 @@
-#!/usr/bin/env perl6
-use v6;
-use Test;
+use Test:ver<6.c+>;
 plan 1;
 
 use-ok("App::OpenAPI::META6Validator");

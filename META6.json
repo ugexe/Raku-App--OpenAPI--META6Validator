@@ -13,7 +13,7 @@
         "Cro::OpenAPI::RoutesFromDefinition"
     ],
     "test-depends" : [
-        "Test",
+        "Test:ver<6.c+>",
         "Cro::HTTP::Test"
     ],
     "resources" : [
