@@ -3,7 +3,7 @@
     "description" : "Web API for validating META6 data",
     "auth" : "github:ugexe",
     "api" : "0",
-    "version" : "0.0.1",
+    "version" : "0.1.0",
     "provides" : {
         "App::OpenAPI::META6Validator" : "lib/App/OpenAPI/META6Validator.rakumod"
     },
